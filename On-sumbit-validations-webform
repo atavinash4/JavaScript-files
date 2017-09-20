@@ -1,0 +1,667 @@
+$webform = array (
+  'nid' => '1',
+  'next_serial' => '27',
+  'confirmation' => '',
+  'confirmation_format' => 'plain_text',
+  'redirect_url' => '/sign-up-thank-you',
+  'status' => '1',
+  'block' => '0',
+  'allow_draft' => '0',
+  'auto_save' => '0',
+  'submit_notice' => '1',
+  'confidential' => '0',
+  'submit_text' => 'SIGN ME UP',
+  'submit_limit' => '-1',
+  'submit_interval' => '-1',
+  'total_submit_limit' => '-1',
+  'total_submit_interval' => '-1',
+  'progressbar_bar' => '1',
+  'progressbar_page_number' => '0',
+  'progressbar_percent' => '0',
+  'progressbar_pagebreak_labels' => '1',
+  'progressbar_include_confirmation' => '1',
+  'progressbar_label_first' => 'Start',
+  'progressbar_label_confirmation' => 'Complete',
+  'preview' => '0',
+  'preview_next_button_label' => '',
+  'preview_prev_button_label' => '',
+  'preview_title' => '',
+  'preview_message' => '',
+  'preview_message_format' => 'plain_text',
+  'preview_excluded_components' => 
+  array (
+  ),
+  'webform_ajax' => '0',
+  'record_exists' => true,
+  'roles' => 
+  array (
+    0 => '1',
+    1 => '2',
+  ),
+  'emails' => 
+  array (
+  ),
+  'components' => 
+  array (
+    16 => 
+    array (
+      'nid' => 1,
+      'cid' => '16',
+      'pid' => '0',
+      'form_key' => 'fieldset_header',
+      'name' => 'Fieldset Header',
+      'type' => 'fieldset',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'none',
+        'description_above' => 0,
+        'private' => 0,
+        'css_classes' => '',
+        'collapsible' => 0,
+        'collapsed' => 0,
+        'description' => '',
+      ),
+      'required' => '0',
+      'weight' => '17',
+      'class' => '',
+      'page_num' => 1,
+    ),
+    17 => 
+    array (
+      'nid' => 1,
+      'cid' => '17',
+      'pid' => '16',
+      'form_key' => 'markup_1',
+      'name' => 'markup 1',
+      'type' => 'markup',
+      'value' => '<h2>SIGN UP FOR MORE INFORMATION</h2>
+
+<p>Be one of the first to receive support resources to help you learn more about XELJANZ 5 mg tablets and XELJANZ XR extended release 11 mg tablets, a once-daily pill for adults with active psoriatic arthritis.</p>
+',
+      'extra' => 
+      array (
+        'format' => 'full_html',
+        'private' => 0,
+        'display_on' => 'form',
+      ),
+      'required' => '0',
+      'weight' => '18',
+      'class' => 'ga-register-markup-sign-up',
+      'page_num' => 1,
+    ),
+    18 => 
+    array (
+      'nid' => 1,
+      'cid' => '18',
+      'pid' => '16',
+      'form_key' => 'error_messages',
+      'name' => 'error message',
+      'type' => 'markup',
+      'value' => '<h3><span class="form-required">*</span>REQUIRED FIELDS</h3>
+',
+      'extra' => 
+      array (
+        'format' => 'full_html',
+        'private' => 0,
+        'display_on' => 'form',
+      ),
+      'required' => '0',
+      'weight' => '19',
+      'class' => '',
+      'page_num' => 1,
+    ),
+    1 => 
+    array (
+      'nid' => 1,
+      'cid' => '1',
+      'pid' => '0',
+      'form_key' => 'fieldset_user_info',
+      'name' => 'Fieldset User Info',
+      'type' => 'fieldset',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'none',
+        'private' => 0,
+        'css_classes' => '',
+        'collapsible' => 0,
+        'collapsed' => 0,
+        'description' => '',
+        'description_above' => false,
+      ),
+      'required' => '0',
+      'weight' => '18',
+      'class' => '',
+      'page_num' => 1,
+    ),
+    2 => 
+    array (
+      'nid' => 1,
+      'cid' => '2',
+      'pid' => '1',
+      'form_key' => 'first_name',
+      'name' => 'First Name',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'placeholder' => 'e.g., Sam',
+        'maxlength' => '30',
+        'encrypt' => 1,
+        'width' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '3',
+      'class' => 'ga-register-firstname',
+      'page_num' => 1,
+    ),
+    3 => 
+    array (
+      'nid' => 1,
+      'cid' => '3',
+      'pid' => '1',
+      'form_key' => 'last_name',
+      'name' => 'Last Name',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'placeholder' => 'e.g., Smith',
+        'maxlength' => '30',
+        'encrypt' => 1,
+        'width' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '4',
+      'class' => 'ga-register-lastname',
+      'page_num' => 1,
+    ),
+    4 => 
+    array (
+      'nid' => 1,
+      'cid' => '4',
+      'pid' => '1',
+      'form_key' => 'e_mail_address',
+      'name' => 'Email Address',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'placeholder' => 'e.g., sam@email.com',
+        'encrypt' => 1,
+        'width' => '',
+        'maxlength' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '5',
+      'class' => 'e_mail_address ga-register-email',
+      'page_num' => 1,
+    ),
+    5 => 
+    array (
+      'nid' => 1,
+      'cid' => '5',
+      'pid' => '1',
+      'form_key' => 'confirm_e_mail_address',
+      'name' => 'Confirm Email Address',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'placeholder' => 'e.g., sam@email.com',
+        'encrypt' => 1,
+        'width' => '',
+        'maxlength' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '6',
+      'class' => 'confirm_e_mail_address ga-register-confirmemail',
+      'page_num' => 1,
+    ),
+    6 => 
+    array (
+      'nid' => 1,
+      'cid' => '6',
+      'pid' => '1',
+      'form_key' => 'street_address_1',
+      'name' => 'Street Address 1',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => 'clearfix',
+        'css_classes' => '',
+        'placeholder' => 'e.g., 123 Main St',
+        'encrypt' => 1,
+        'width' => '',
+        'maxlength' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '7',
+      'class' => 'ga-register-address1',
+      'page_num' => 1,
+    ),
+    7 => 
+    array (
+      'nid' => 1,
+      'cid' => '7',
+      'pid' => '1',
+      'form_key' => 'street_address_2',
+      'name' => 'Street Address 2',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => 'address-2 clearfix',
+        'css_classes' => '',
+        'placeholder' => 'e.g., Unit 200',
+        'encrypt' => 1,
+        'width' => '',
+        'maxlength' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '0',
+      'weight' => '9',
+      'class' => 'ga-register-address2',
+      'page_num' => 1,
+    ),
+    8 => 
+    array (
+      'nid' => 1,
+      'cid' => '8',
+      'pid' => '1',
+      'form_key' => 'city',
+      'name' => 'City',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'placeholder' => 'e.g., Washington',
+        'maxlength' => '25',
+        'minlength' => '0',
+        'encrypt' => 1,
+        'width' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '10',
+      'class' => 'ga-register-city',
+      'page_num' => 1,
+    ),
+    9 => 
+    array (
+      'nid' => 1,
+      'cid' => '9',
+      'pid' => '1',
+      'form_key' => 'state',
+      'name' => 'State',
+      'type' => 'select',
+      'value' => '',
+      'extra' => 
+      array (
+        'items' => 'AL|Alabama
+AK|Alaska
+AZ|Arizona
+AR|Arkansas
+CA|California
+CO|Colorado
+CT|Connecticut
+DE|Delaware
+DC|District of Columbia
+FL|Florida
+GA|Georgia
+GU|Guam
+HI|Hawaii
+ID|Idaho
+IL|Illinois
+IN|Indiana
+IA|Iowa
+KS|Kansas
+KY|Kentucky
+LA|Louisiana
+ME|Maine
+MD|Maryland
+MA|Massachusetts
+MI|Michigan
+MN|Minnesota
+MS|Mississippi
+MO|Missouri
+MT|Montana
+NE|Nebraska
+NV|Nevada
+NH|New Hampshire
+NJ|New Jersey
+NM|New Mexico
+NY|New York
+NC|North Carolina
+ND|North Dakota
+OH|Ohio
+OK|Oklahoma
+OR|Oregon
+PA|Pennsylvania
+PR|Puerto Rico
+RI|Rhode Island
+SC|South Carolina
+SD|South Dakota
+TN|Tennessee
+TX|Texas
+VI|US Virgin Islands
+UT|Utah
+VT|Vermont
+VA|Virginia
+WA|Washington
+WV|West Virginia
+WI|Wisconsin
+WY|Wyoming',
+        'multiple' => 0,
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'aslist' => 1,
+        'encrypt' => 1,
+        'empty_option' => '',
+        'optrand' => 0,
+        'other_option' => NULL,
+        'other_text' => 'Other...',
+        'description' => '',
+        'custom_keys' => false,
+        'options_source' => '',
+        'analysis' => true,
+      ),
+      'required' => '1',
+      'weight' => '11',
+      'class' => 'ga-register-state',
+      'page_num' => 1,
+    ),
+    10 => 
+    array (
+      'nid' => 1,
+      'cid' => '10',
+      'pid' => '1',
+      'form_key' => 'zip_code',
+      'name' => 'ZIP Code',
+      'type' => 'textfield',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'before',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => '',
+        'css_classes' => '',
+        'placeholder' => 'e.g., 20005',
+        'maxlength' => '5',
+        'encrypt' => 1,
+        'width' => '',
+        'minlength' => '',
+        'field_prefix' => '',
+        'field_suffix' => '',
+        'disabled' => 0,
+        'unique' => 0,
+        'description' => '',
+        'attributes' => 
+        array (
+        ),
+        'analysis' => false,
+      ),
+      'required' => '1',
+      'weight' => '12',
+      'class' => 'zipcode ga-register-zipcode',
+      'page_num' => 1,
+    ),
+    11 => 
+    array (
+      'nid' => 1,
+      'cid' => '11',
+      'pid' => '1',
+      'form_key' => 'active_psoriatic',
+      'name' => 'active psoriatic arthritis',
+      'type' => 'select',
+      'value' => '',
+      'extra' => 
+      array (
+        'description' => 'Are you an adult who has been diagnosed with active psoriatic arthritis?',
+        'items' => 'yes|Yes
+no|No
+none|No, I\'m searching for information for someone else',
+        'multiple' => 0,
+        'title_display' => 'none',
+        'description_above' => 1,
+        'private' => 0,
+        'wrapper_classes' => 'active_psoriatic_wrapper star',
+        'css_classes' => '',
+        'aslist' => 0,
+        'encrypt' => 1,
+        'empty_option' => '',
+        'optrand' => 0,
+        'other_option' => NULL,
+        'other_text' => 'Other...',
+        'custom_keys' => false,
+        'options_source' => '',
+        'analysis' => true,
+      ),
+      'required' => '1',
+      'weight' => '13',
+      'class' => 'ga-register-active-psoriatic ',
+      'page_num' => 1,
+    ),
+    12 => 
+    array (
+      'nid' => 1,
+      'cid' => '12',
+      'pid' => '0',
+      'form_key' => 'fieldset_common',
+      'name' => 'Fieldset common',
+      'type' => 'fieldset',
+      'value' => '',
+      'extra' => 
+      array (
+        'title_display' => 'none',
+        'description_above' => 0,
+        'private' => 0,
+        'css_classes' => '',
+        'collapsible' => 0,
+        'collapsed' => 0,
+        'description' => '',
+      ),
+      'required' => '0',
+      'weight' => '19',
+      'class' => 'tnc_wrapper',
+      'page_num' => 1,
+    ),
+    13 => 
+    array (
+      'nid' => 1,
+      'cid' => '13',
+      'pid' => '12',
+      'form_key' => 'info',
+      'name' => 'Info',
+      'type' => 'markup',
+      'value' => '<p>Pfizer understands your personal and health information is private. The information you provide will only be used by Pfizer to send you the materials you requested and other helpful information and updates on XELJANZ, as well as related treatments, products, offers, and services.</p>
+',
+      'extra' => 
+      array (
+        'format' => 'full_html',
+        'private' => 0,
+        'display_on' => 'form',
+      ),
+      'required' => '0',
+      'weight' => '14',
+      'class' => 'ga-register-disclaimer',
+      'page_num' => 1,
+    ),
+    14 => 
+    array (
+      'nid' => 1,
+      'cid' => '14',
+      'pid' => '12',
+      'form_key' => 'i_agree_age',
+      'name' => 'i agree age',
+      'type' => 'select',
+      'value' => '',
+      'extra' => 
+      array (
+        'description' => 'By checking this box, I verify that I am 18 years of age or older.',
+        'items' => 'AI|By checking this box, I verify that I am 18 years of age or older.',
+        'multiple' => 1,
+        'title_display' => 'none',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => 'star',
+        'css_classes' => '',
+        'aslist' => 0,
+        'encrypt' => 1,
+        'empty_option' => '',
+        'optrand' => 0,
+        'other_option' => NULL,
+        'other_text' => 'Other...',
+        'custom_keys' => false,
+        'options_source' => '',
+        'analysis' => true,
+      ),
+      'required' => '1',
+      'weight' => '15',
+      'class' => 'ga-register-confirm-material-age ',
+      'page_num' => 1,
+    ),
+    15 => 
+    array (
+      'nid' => 1,
+      'cid' => '15',
+      'pid' => '12',
+      'form_key' => 'i_agree',
+      'name' => 'I agree',
+      'type' => 'select',
+      'value' => '',
+      'extra' => 
+      array (
+        'description' => 'By checking this box, I verify that Pfizer or companies acting on its behalf may send me materials about other health conditions, use my information to help develop or improve products and services, or contact me in the future about health-related topics.',
+        'items' => 'BI|By checking this box, I verify that Pfizer or companies acting on its behalf may send me materials about other health conditions, use my information to help develop or improve products and services, or contact me in the future about health-related topics.',
+        'multiple' => 1,
+        'title_display' => 'none',
+        'description_above' => 0,
+        'private' => 0,
+        'wrapper_classes' => 'star',
+        'css_classes' => '',
+        'aslist' => 0,
+        'encrypt' => 1,
+        'empty_option' => '',
+        'optrand' => 0,
+        'other_option' => NULL,
+        'other_text' => 'Other...',
+        'custom_keys' => false,
+        'options_source' => '',
+        'analysis' => true,
+      ),
+      'required' => '1',
+      'weight' => '16',
+      'class' => 'ga-register-confirm-material ',
+      'page_num' => 1,
+    ),
+  ),
+  'conditionals' => 
+  array (
+  ),
+);
+
