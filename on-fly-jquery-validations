@@ -1,0 +1,375 @@
+/**
+ * @file
+ * Implements javascript for webform functionality
+ */
+(function($) {
+  //Define a Drupal behaviour with a custom name
+  Drupal.behaviors.pfepopupcallrrorMessage = {
+    attach: function(context, settings) {
+/*       console.log('error call'); */
+
+      jQuery("select, input:checkbox, input:radio, input:file").uniform({
+        selectAutoWidth: false
+      });
+      jQuery('#edit-actions').addClass('live-support');
+
+      if (jQuery(window).width() < 767) {
+        var winHi = jQuery(window).height();
+        jQuery('div.ctools-modal-dialog, #modalContent, div.ctools-modal-dialog .modal-content, .modal-content .modal-body').css({
+          'height': winHi,
+          'width': '100%',
+          'max-height': '100%'
+        });
+        jQuery("#webform-component-fieldset--markup-1 h4").appendTo("#modalContent .ctools-modal-dialog .modal-header");
+        jQuery(window).resize(function() {
+          var winHix = jQuery(window).height();
+          jQuery('div.ctools-modal-dialog, #modalContent, div.ctools-modal-dialog .modal-content, .modal-content .modal-body').css({
+            'height': winHix,
+            'width': '100%',
+            'max-height': '100%'
+          });
+        });
+        jQuery("#webform-component-fieldset--mobile-logo, #webform-component-fieldset--markup-1").wrapAll("<div class='grey-box' />");
+      }
+
+      $(':input[name="op"]').prop('disabled', true);
+	  $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+      $('.form-select.time  option:nth-child(3)').prop('disabled', 'disabled');
+      $('.form-select.time  option:nth-child(6)').prop('disabled', 'disabled');
+      $('.form-select.time  option:nth-child(10)').prop('disabled', 'disabled');
+
+      if ($("input#edit-submitted-fieldset-support-selection-live-support-call-1").is(':disabled')) {
+        $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+      }
+      else if ($("input#edit-submitted-fieldset-support-selection-live-support-call-1").not(':disabled')) {
+        $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+      }
+
+      // form submit on radio button checked
+      /* $(':input[name="submitted[fieldset][live_support_call]"]').on('change', function() {
+        $(':input[id="edit-submit"]').submit();
+      }); */
+
+
+      $('.phone_number').bind('keypress', function(e) {
+        return !(e.which !== 8 && e.which !== 0 && (e.which < 48 || e.which > 57) && e.which !== 46);
+      });
+
+      $('.full_name').bind('keypress', function(e) {
+        return !(e.which !== 8 && e.which !== 0 && e.which !== 32 && (e.which < 65 || e.which > 90) && (e.which < 97 || e.which > 122) && e.which !== 46);
+      });
+
+      /* $("#edit-submitted-fieldset-time-fieldset-time > option").each(function() {
+        if ($(this).val() === "") {
+          $(this).text('Time');
+        }
+      }); */
+
+      var flag_checked = true;
+      $.each(['full_name'], function(index, value) {
+        var input = jQuery('.' + value);
+        input.removeClass('error');
+        input.blur(function() {
+          if (input.val() === '') {
+            input.addClass('error');
+          }
+        });
+        input.keyup(function() {
+          if (input.val() === '') {
+            input.addClass('error');
+			$(':input[name="op"]').prop('disabled', true);
+            $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+          } else if (input.val() !== '') {
+            input.removeClass('error');
+            var empty = false;
+            $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+              var input = jQuery('.' + value);
+              if (input.val() === '' || input.hasClass('error') || (flag_checked == false)) {
+                empty = true;
+              }
+            });
+            if (empty) {
+              $(':input[name="op"]').prop('disabled', true);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+
+            } else {  
+			  $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              if (date_flag) {
+				$(':input[name="op"]').prop('disabled', false);
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+              }
+              else {
+                $(':input[name="op"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              }
+            }
+          }
+        });
+      });
+      /* $(".first_name, .last_name").off('blur').on('blur',function(){
+        // On Phone Number blur input
+        var custom = {'event138':1}; 
+        s.pfFormWorkflowInput('request a call', 1 ,custom);
+      });
+      $(".phone_number").off('blur').on('blur',function(){
+        // On Phone Number blur input
+        var custom = {'event137':1}; 
+        s.pfFormWorkflowInput(' request a call', 1 ,custom); 
+      });
+      $(".webform.email").off('blur').on('blur', function(){
+        // On Phone Number blur input
+        var custom = {'event136':1}; 
+        s.pfFormWorkflowInput(' request a call', 1 ,custom); 
+      });
+      $(".call_support").off('click').on('click', function(){
+        var custom = {'event148':1}; 
+        s.pfFormWorkflowInput('request a call', 1, custom, 'call me', 'next 60 minutes', 1);
+      });
+      $(':input[id="edit-submit"]').off("click").on("click", function(){
+        s.pfFormWorkflow('submit', 'request a call', false);
+      }); */
+
+      //agreement
+      /* var agreement = $('input[name="' + 'submitted[fieldset][agreement][Yes]' + '"]');
+      $(agreement).on("change", function() {
+        flag_checked = false;
+        if ($(this).is(':checked') === true) {
+          flag_checked = true;
+          var empty = false;
+          $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+            var input = jQuery('.' + value);
+            if (input.val() === '' || input.hasClass('error')) {
+              empty = true;
+            }
+          });
+          if (empty) {
+			$(':input[name="op"]').prop('disabled', true);
+            $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+          }
+          else {
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+            if (date_flag) {
+              $(':input[name="op"]').prop('disabled', false);
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            }
+            else {
+              $(':input[name="op"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+            }
+          }
+        }
+        if (flag_checked === false) {
+          $(':input[name="op"]').prop('disabled', true);
+          $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+          $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+        }
+      }); */
+
+      //Date-time field validation
+      var check_val_ques_1 = false;
+      var check_val_ques_2 = false;
+      var valid_day = $('input[name="' + 'submitted[fieldset][support_selection][time_fieldset][day]' + '"]');
+      var valid_time = $('input[name="' + 'submitted[fieldset][support_selection][time_fieldset][time]' + '"]');
+      var date_flag = false;
+      $(valid_day).on("change", function() {
+        if ($(this).val() !== '') {
+          check_val_ques_1 = true;
+          if (check_val_ques_1 && check_val_ques_2) {
+            date_flag = true;
+            var empty = false;
+            $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+              var input = jQuery('.' + value);
+              if (input.val() === '' || (flag_checked == true)) {
+                empty = true;
+              }
+            });
+            if (empty) {
+			  $(':input[name="op"]').prop('disabled', true);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            }
+            else {
+              $(':input[name="op"]').prop('disabled', false);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            }
+          }
+        }
+        else if ($(this).val() === '') {
+          check_val_ques_1 = false;
+          date_flag = false;
+          $(':input[name="op"]').prop('disabled', true);
+        }
+      });
+      $('select.time').change(function() {
+        if ($(this).val() !== '') {
+          check_val_ques_2 = true;
+          if (check_val_ques_1 && check_val_ques_2) {
+            date_flag = true;
+            var empty = false;
+            $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+              var input = jQuery('.' + value);
+              if (input.val() === '' || (flag_checked == true)) {
+                empty = true;
+              }
+            });
+            if (empty) {
+			  $(':input[name="op"]').prop('disabled', true);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            }
+            else {
+				alert('here');
+              $(':input[name="op"]').prop('disabled', false);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            }
+          }
+        }
+        else if ($(this).val() === '') {
+          check_val_ques_2 = false;
+          date_flag = false;
+          $(':input[name="op"]').prop('disabled', true);
+          var empty = false;
+          $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+            var input = jQuery('.' + value);
+            if (input.val() === '' || (flag_checked === true)) {
+              empty = true;
+            }
+          });
+          if (empty) {
+            $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+          }
+          else {
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+			$(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+          }
+        }
+      });
+
+      //phone number validation
+      $.each(['phone_number'], function(index, value) {
+        var input = jQuery('.' + value);
+        input.removeClass('error');
+        input.blur(function() {
+          if (input.val() === '' || !validate_mobile_phone(input)) {
+            input.addClass('error');
+          }
+        });
+        input.keyup(function() {
+          if (input.val() === '' || !validate_mobile_phone(input)) {
+            input.addClass('error');
+            $(':input[name="op"]').prop('disabled', true);
+            $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+          } else if (validate_mobile_phone(input)) {
+            input.removeClass('error');
+            var empty = false;
+            $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+              var input = jQuery('.' + value);
+              if (input.val() === '' || input.hasClass('error') || (flag_checked == false)) {
+                empty = true;
+              }
+            });
+            if (empty) {
+              $(':input[name="op"]').prop('disabled', true);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            }
+            else {
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              if (date_flag) {
+                $(':input[name="op"]').prop('disabled', false);
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+              }
+              else {
+                $(':input[name="op"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              }
+            }
+          }
+        });
+      });
+
+      //email validation
+      $.each(['email'], function(index, value) {
+        var input = jQuery('.' + value);
+        input.removeClass('error');
+        input.blur(function() {
+          if (input.val() === '' || !validate_email(input)) {
+            input.addClass('error');
+          }
+        });
+        input.keyup(function() {
+          if (input.val() === '' || !validate_email(input)) {
+            input.addClass('error');
+            $(':input[name="op"]').prop('disabled', true);
+            $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+            $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+          } else if (validate_email(input)) {
+            input.removeClass('error');
+            var empty = false;
+            $.each(['full_name', 'phone_number', 'email'], function(index, value) {
+              var input = jQuery('.' + value);
+              if (input.val() === '' || input.hasClass('error') || (flag_checked == false)) {
+                empty = true;
+              }
+            });
+            if (empty) {
+              $(':input[name="op"]').prop('disabled', true);
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+            } else {
+              $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+              $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              if (date_flag) {
+                $(':input[name="op"]').prop('disabled', false);
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").addClass("disabled");
+              }
+              else {
+                $(':input[name="op"]').prop('disabled', true);
+                $(".form-item-submitted-fieldset-support-selection-live-support-call label").removeClass("disabled");
+                $(':input[name="submitted[fieldset][support_selection][live_support_call]"]').prop('disabled', false);
+              }
+            }
+          }
+        });
+      });
+    }
+  };
+
+  function validate_mobile_phone(obj) {
+    var mobile_pattern = /^[0-9]{10}$/;
+    var mobile_number = jQuery(obj).val();
+    if (!mobile_pattern.test(mobile_number)) {
+      return false;
+    }
+    return true;
+  }
+
+  function validate_email(obj) {
+    var email_pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/i);
+    var email = jQuery(obj).val();
+    if (jQuery.trim(email)) {
+      if (!email_pattern.test(email)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+})(jQuery);
